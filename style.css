@@ -1,0 +1,253 @@
+/* Ayushi's Mental Health Awareness Website Stylesheet */
+body {
+    font-family: 'Inter', sans-serif; /* Using Inter as per instructions */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f8f8f8; /* Light background color */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styling */
+header {
+    background-color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    border-radius: 0 0 10px 10px; /* Rounded corners at the bottom */
+}
+
+header h1 {
+    margin: 0;
+    color: #4a90e2; /* A shade of blue for the title */
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: center;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+header ul li a:hover {
+    color: #4a90e2;
+}
+
+/* Main Content Styling */
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Section 1: Hero Section */
+main section:nth-of-type(1) {
+    text-align: center;
+    padding: 4rem 1rem;
+    background-color: #e6f0fa; /* Light blue background for hero */
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+main section:nth-of-type(1) h2 {
+    font-size: 2.8rem;
+    color: #2c3e50; /* Darker blue for heading */
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+main section:nth-of-type(1) pre { /* Changed from pre to p for better styling control */
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2rem;
+    white-space: pre-wrap; /* Ensures pre-formatted text wraps */
+    font-family: 'Inter', sans-serif; /* Ensure consistent font */
+}
+
+main section:nth-of-type(1) button {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    margin: 0.5rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+main section:nth-of-type(1) button:hover {
+    background-color: #357ABD;
+    transform: translateY(-2px);
+}
+
+/* Section 2: What is Mental Health? */
+main section:nth-of-type(2) {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: #fff;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+main section:nth-of-type(2) h2 {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+main section:nth-of-type(2) img {
+    max-width: 100%; /* Ensure image is responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Section 3: Features */
+main section:nth-of-type(3) {
+    padding: 3rem 1rem;
+    background-color: #e6f0fa;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center the heading */
+}
+
+main section:nth-of-type(3) h2 {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+}
+
+main section:nth-of-type(3) ol {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 1.5rem;
+    margin: 0 auto;
+    max-width: 900px; /* Limit width of the grid for better readability */
+}
+
+main section:nth-of-type(3) ol li {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Align text within feature boxes */
+}
+
+main section:nth-of-type(3) ol li h3 {
+    color: #4a90e2;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+main section:nth-of-type(3) ol li p {
+    color: #666;
+    font-size: 1rem;
+}
+
+/* Join Us Button (Standalone) */
+main section:last-of-type button {
+    background-color: #2ecc71; /* Green for join us button */
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    display: block; /* Make it a block element to center with margin auto */
+    margin: 2rem auto 0 auto; /* Center the button */
+}
+
+main section:last-of-type button:hover {
+    background-color: #27ae60;
+    transform: translateY(-3px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header ul {
+        margin-top: 1rem;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    header ul li a {
+        padding: 0.5rem 0;
+        display: block; /* Make links block to take full width */
+    }
+
+    main section:nth-of-type(1) h2 {
+        font-size: 2rem;
+    }
+
+    main section:nth-of-type(1) pre {
+        font-size: 1rem;
+    }
+
+    main section:nth-of-type(1) button {
+        width: 90%; /* Make buttons wider on small screens */
+        margin: 0.5rem auto;
+        display: block;
+    }
+
+    main section:nth-of-type(2) h2,
+    main section:nth-of-type(3) h2 {
+        font-size: 1.8rem;
+    }
+
+    main section:nth-of-type(3) ol {
+        grid-template-columns: 1fr; /* Stack features on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    main section:nth-of-type(1) {
+        padding: 2rem 0.5rem;
+    }
+
+    main section:nth-of-type(1) h2 {
+        font-size: 1.8rem;
+    }
+
+    main section:nth-of-type(1) pre {
+        font-size: 0.9rem;
+    }
+}
+
