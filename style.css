@@ -1,253 +1,286 @@
-/* Ayushi's Mental Health Awareness Website Stylesheet */
-body {
-    font-family: 'Inter', sans-serif; /* Using Inter as per instructions */
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-purple: #6A62D2;
+    --light-purple-bg: #F7F7FD;
+    --text-dark: #1E1E1E;
+    --text-light: #555;
+    --card-bg: #FFFFFF;
+    --border-light: #EAEAEA;
+    --active-mood-bg: #E8E7FF;
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #f8f8f8; /* Light background color */
-    color: #333;
-    line-height: 1.6;
 }
 
-/* Header Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--card-bg);
+    color: var(--text-dark);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Header --- */
 header {
-    background-color: #fff;
-    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    border-radius: 0 0 10px 10px; /* Rounded corners at the bottom */
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-light);
 }
 
-header h1 {
-    margin: 0;
-    color: #4a90e2; /* A shade of blue for the title */
-    font-size: 1.8rem;
-    font-weight: bold;
-}
-
-header ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.logo {
+    font-size: 28px;
+    font-weight: 700;
     display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    align-items: center;
+}
+
+.logo span {
+    background-color: var(--primary-purple);
+    color: white;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
     justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    margin-right: 10px;
+    font-weight: 600;
 }
 
-header ul li a {
-    text-decoration: none;
-    color: #555;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-header ul li a:hover {
-    color: #4a90e2;
-}
-
-/* Main Content Styling */
-main {
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Section 1: Hero Section */
-main section:nth-of-type(1) {
-    text-align: center;
-    padding: 4rem 1rem;
-    background-color: #e6f0fa; /* Light blue background for hero */
-    border-radius: 15px;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-main section:nth-of-type(1) h2 {
-    font-size: 2.8rem;
-    color: #2c3e50; /* Darker blue for heading */
-    margin-bottom: 1rem;
-    line-height: 1.2;
-}
-
-main section:nth-of-type(1) pre { /* Changed from pre to p for better styling control */
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 2rem;
-    white-space: pre-wrap; /* Ensures pre-formatted text wraps */
-    font-family: 'Inter', sans-serif; /* Ensure consistent font */
-}
-
-main section:nth-of-type(1) button {
-    background-color: #4a90e2;
-    color: white;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    margin: 0.5rem;
-    border-radius: 25px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-}
-
-main section:nth-of-type(1) button:hover {
-    background-color: #357ABD;
-    transform: translateY(-2px);
-}
-
-/* Section 2: What is Mental Health? */
-main section:nth-of-type(2) {
-    text-align: center;
-    padding: 3rem 1rem;
-    background-color: #fff;
-    border-radius: 15px;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-main section:nth-of-type(2) h2 {
-    font-size: 2.2rem;
-    color: #2c3e50;
-    margin-bottom: 1.5rem;
-}
-
-main section:nth-of-type(2) img {
-    max-width: 100%; /* Ensure image is responsive */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-/* Section 3: Features */
-main section:nth-of-type(3) {
-    padding: 3rem 1rem;
-    background-color: #e6f0fa;
-    border-radius: 15px;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Center the heading */
-}
-
-main section:nth-of-type(3) h2 {
-    font-size: 2.2rem;
-    color: #2c3e50;
-    margin-bottom: 2rem;
-}
-
-main section:nth-of-type(3) ol {
+nav ul {
     list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
-    gap: 1.5rem;
-    margin: 0 auto;
-    max-width: 900px; /* Limit width of the grid for better readability */
+    display: flex;
+    gap: 40px;
 }
 
-main section:nth-of-type(3) ol li {
-    background-color: #fff;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: left; /* Align text within feature boxes */
+nav a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: 16px;
+    position: relative;
 }
 
-main section:nth-of-type(3) ol li h3 {
-    color: #4a90e2;
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+nav a.active, nav a:hover {
+    color: var(--text-dark);
 }
 
-main section:nth-of-type(3) ol li p {
-    color: #666;
-    font-size: 1rem;
+.search-icon {
+    color: var(--text-dark);
 }
 
-/* Join Us Button (Standalone) */
-main section:last-of-type button {
-    background-color: #2ecc71; /* Green for join us button */
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 30px;
-    font-size: 1.1rem;
+/* --- Hero Section --- */
+.hero {
+    display: flex;
+    align-items: center;
+    padding: 80px 0;
+    gap: 40px;
+}
+
+.hero-text {
+    flex-basis: 50%;
+}
+
+.hero-text h1 {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.hero-text p {
+    font-size: 18px;
+    color: var(--text-light);
+    max-width: 450px;
+    margin-bottom: 40px;
+}
+
+.download-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.download-buttons img {
+    height: 50px;
+}
+
+/* Replicating the "Get it on Google Play" button from the image */
+.download-buttons a:nth-child(2) img {
+    content: url('data:image/png;base64,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HACSAeAGQBkAEgAcAJgDABkAsAHABgAWACwAZAFIByAfgHoA6AUANQAsAGQBSAfg/gB1AQASANwApAHABkAUgHgBoAFADQALAG4AWABIAEgAEgCSANwAkAOQAGQBaAMgCcDeAGkCkAKgBQAyAGADIAkAHgCSAGQA8ADIBYAEACkAkgDgBSAnADkBIAeA7ABIBkASADwBpAmABIAZALgAyABQA0ASAHwAIAeAHADIBQAvADIDqAcAnADIBIApAFkBEgDkABIASACQAJAEYA2AEwA9ASAHwE0AmAHACkASgDYAQAAyAKQDqAVAFIBSAHQAkgGQBkACADcASABIApAGQBKACwAWAGgAkAKgC4A0AAgAEgAkACQAIAHYBeACIA9ASQC8AAgCyAGgC4AUACcASACyA8gGoB4AaAGgAUANQC4ApAMwAWAGQBcAaQDYAUASADsAkgHYApAGIC0A6ACwCgCSAbwCkASgLkD4BIAEgCQASACQABAAJABIABIA5AbQDIAZAHIBaAaQDyA7AKQCgAWAOwDZAVIAaAcgCYAmAFIDIAkAKgCSASQASACQACABIAlAEoCUAUgCkBkASAIwAWAGQAIAEgCcAmQG0AyALQG4AyAzADYAkAHkBSADgCkASADcAZAFIAsgGgAwANQDIABIAJAAYAAgACADSASALQFoApABIBkBqAMgDkBsAkgA0AQgCIAEANgCSAHACgAwASAAwAEACkBaA9ACIBkACABsASQDuAOAGIAEgCcAKgCQAkgBkApAGACQAuAGgCUBeAJAAkASACQAyABAAJABQAJAEgAwAyABIAJAASAJIAsgGEA4AGwBkAJAAYALIDpAGAC0AaAGgCcDeAJAAYAEgCcAOAOwCSAIQDYAkANgAkAcgDwAYAGQBSAcANQBIAPAEAEgCkAyA7gCgASAByA5gAEACyASADSAbABYAcgDQA6AFIApAHIBcANgAIAFgCkASAHADIApANAGkAUAGACADIAJAAkACQBCAZAG4AyAYAEgAkAEgAqAEAG4C4AaAFAG4A6AGQDcAkAEgAyA1gGkBeAGAAIASADMBJAGQCACQAIAFIApAGIAFAEgAkACADQAIAAoA2AGAAIASACQDCAkACAAkAAgAEACQAJAAYAGQAIAEgAkABgASAIADABIAkAEgAUACgAUASABQAIAEgD4BSAeACABkAMgEgCUACgBQAqADIBkASABAAJAAkABgASAAyACQBSAIACABkAMgEgB4AKAFAAoAcAGADIAvAAAAv//AwA2GzC+KjT7uQAAAABJRU5ErkJggg==');
+}
+
+/* --- Phone Mockup --- */
+.hero-image {
+    flex-basis: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 650px; /* Give container a height */
+}
+
+.phone {
+    width: 300px;
+    height: 610px;
+    background: #1E1E1E;
+    border-radius: 40px;
+    padding: 15px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 2;
+}
+
+.phone-notch {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 25px;
+    background: #1E1E1E;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    z-index: 10;
+}
+
+.phone-screen {
+    background: white;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* --- App Content --- */
+.app-content {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.app-logo {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--primary-purple);
+    margin-top: 10px;
+}
+
+.welcome-text {
+    color: var(--text-light);
+    margin-top: 5px;
+}
+
+.app-content h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 25px;
+    color: var(--text-dark);
+}
+
+.mood-selector {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.mood {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    display: block; /* Make it a block element to center with margin auto */
-    margin: 2rem auto 0 auto; /* Center the button */
+    padding: 10px;
+    border-radius: 10px;
 }
 
-main section:last-of-type button:hover {
-    background-color: #27ae60;
-    transform: translateY(-3px);
+.mood-icon {
+    font-size: 28px;
+    background: #F4F4F4;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mood-active .mood-icon {
+     background-color: var(--active-mood-bg);
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    header ul {
-        margin-top: 1rem;
-        flex-direction: column;
-        gap: 0.8rem;
-    }
-
-    header ul li a {
-        padding: 0.5rem 0;
-        display: block; /* Make links block to take full width */
-    }
-
-    main section:nth-of-type(1) h2 {
-        font-size: 2rem;
-    }
-
-    main section:nth-of-type(1) pre {
-        font-size: 1rem;
-    }
-
-    main section:nth-of-type(1) button {
-        width: 90%; /* Make buttons wider on small screens */
-        margin: 0.5rem auto;
-        display: block;
-    }
-
-    main section:nth-of-type(2) h2,
-    main section:nth-of-type(3) h2 {
-        font-size: 1.8rem;
-    }
-
-    main section:nth-of-type(3) ol {
-        grid-template-columns: 1fr; /* Stack features on small screens */
-    }
+.mood span {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 8px;
 }
 
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 1.5rem;
-    }
-
-    main {
-        padding: 1rem;
-    }
-
-    main section:nth-of-type(1) {
-        padding: 2rem 0.5rem;
-    }
-
-    main section:nth-of-type(1) h2 {
-        font-size: 1.8rem;
-    }
-
-    main section:nth-of-type(1) pre {
-        font-size: 0.9rem;
-    }
+.meditation-person {
+    margin-top: 25px;
 }
 
+/* --- Decorative Elements --- */
+.hero-image svg {
+    position: absolute;
+    z-index: 1;
+}
+.leaves-left {
+    left: -80px;
+    bottom: 0;
+}
+.leaves-right {
+    right: -100px;
+    top: 0;
+}
+.cloud {
+    top: 80px;
+    left: 20px;
+}
+
+/* --- Features Section --- */
+.features {
+    background-color: var(--light-purple-bg);
+    padding: 80px 0;
+    margin-top: -50px; /* Overlap with hero section's bottom padding */
+    position: relative;
+    z-index: 0;
+}
+
+.features-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.feature-box {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    flex-basis: 23%;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+}
+
+.feature-icon {
+    margin-bottom: 20px;
+}
+
+.feature-box h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.feature-box p {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.5;
+}
