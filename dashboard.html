@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Puthal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Global Styles & Variables --- */
+        :root {
+            --primary-purple: #6A62D2;
+            --text-dark: #1E1E1E;
+            --text-light: #555;
+            --border-light: #EAEAEA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFFFFF;
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            background-color: var(--primary-purple);
+            color: white;
+            width: 36px;
+            height: 36px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            margin-right: 10px;
+            font-weight: 600;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        /* --- Dashboard Specific Styles --- */
+        .dashboard-welcome {
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .dashboard-welcome h1 {
+            font-size: 48px;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+        .dashboard-welcome p {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-top: 10px;
+        }
+        .logout-btn {
+            padding: 12px 30px;
+            background-color: var(--primary-purple);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .logout-btn:hover {
+            background-color: #5851b9;
+        }
+        #userInfo {
+            margin-top: 20px;
+            font-style: italic;
+        }
+        #userInfo a {
+            color: var(--primary-purple);
+            font-weight: 600;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+         <header>
+            <div class="logo">
+                <span>P</span> Puthal
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Profile</a></li>
+                </ul>
+            </nav>
+            <div>
+                 <button class="logout-btn" id="logoutBtn">Logout</button>
+            </div>
+        </header>
+        <main class="dashboard-welcome">
+            <h1 id="welcomeHeading">Welcome to Your Dashboard</h1>
+            <p id="welcomeSubheading">Your journey to mental wellness starts now. We're glad you're here.</p>
+            <p id="userInfo"></p>
+        </main>
+    </div>
+
+    <!-- Firebase SDK - Updated to v9 modular SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBOhAUsXApTxxwUCDFJ3Dky99WVgTlOLWw",
+            authDomain: "internship-4a323.firebaseapp.com",
+            projectId: "internship-4a323",
+            storageBucket: "internship-4a323.appspot.com",
+            messagingSenderId: "953845773650",
+            appId: "1:953845773650:web:a31bed78777aeb7b61368b",
+            measurementId: "G-4Y753MCEG5"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        const logoutBtn = document.getElementById('logoutBtn');
+        const logoutBtnContainer = logoutBtn.parentElement;
+        const userInfo = document.getElementById('userInfo');
+        const welcomeHeading = document.getElementById('welcomeHeading');
+        const welcomeSubheading = document.getElementById('welcomeSubheading');
+        const navLinks = document.querySelector('nav ul');
+
+        // --- Auth State Observer ---
+        onAuthStateChanged(auth, user => {
+            if (user) {
+                // User is signed in. Display dashboard content.
+                logoutBtnContainer.style.display = 'block';
+                navLinks.innerHTML = `
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Profile</a></li>
+                `;
+                
+                console.log('User is logged in:', user);
+                const userName = user.displayName || 'User';
+                welcomeHeading.textContent = `Welcome back, ${userName}!`;
+                welcomeSubheading.textContent = "Your journey to mental wellness starts now. We're glad you're here.";
+                userInfo.textContent = `Logged in as: ${user.email}`;
+            } else {
+                // No user is signed in. Display a login prompt.
+                console.log('No user is logged in. Updating UI to show login prompt.');
+                
+                logoutBtnContainer.style.display = 'none';
+                navLinks.innerHTML = `
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./login.html">Login</a></li>
+                `;
+                
+                welcomeHeading.textContent = 'Access Denied';
+                welcomeSubheading.textContent = 'You must be logged in to view the dashboard.';
+                userInfo.innerHTML = `Please <a href="./login.html">click here to log in.</a>`;
+            }
+        });
+
+        // --- Logout Functionality ---
+        logoutBtn.addEventListener('click', () => {
+            signOut(auth).then(() => {
+                // Sign-out successful.
+                console.log('User signed out.');
+                // The onAuthStateChanged observer will handle updating the UI.
+            }).catch((error) => {
+                // An error happened.
+                console.error('Sign out error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
