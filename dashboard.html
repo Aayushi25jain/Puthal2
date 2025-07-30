@@ -75,39 +75,25 @@
             font-weight: 500;
             font-size: 16px;
         }
+         nav a.active {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
 
         /* --- Dashboard Specific Styles --- */
-        .dashboard-welcome {
+        .dashboard-content {
             text-align: center;
             padding: 100px 20px;
         }
-        .dashboard-welcome h1 {
+        .dashboard-content h1 {
             font-size: 48px;
             color: var(--text-dark);
             font-weight: 700;
         }
-        .dashboard-welcome p {
+        .dashboard-content p {
             font-size: 18px;
             color: var(--text-light);
             margin-top: 10px;
-        }
-        .logout-btn {
-            padding: 12px 30px;
-            background-color: var(--primary-purple);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .logout-btn:hover {
-            background-color: #5851b9;
-        }
-        #userInfo {
-            margin-top: 20px;
-            font-style: italic;
         }
         #userInfo a {
             color: var(--primary-purple);
@@ -123,19 +109,14 @@
                 <span>P</span> Puthal
             </div>
             <nav>
-                <ul>
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="#">Profile</a></li>
+                <ul id="navLinks">
+                   <!-- Dynamic nav links -->
                 </ul>
             </nav>
-            <div>
-                 <button class="logout-btn" id="logoutBtn">Logout</button>
-            </div>
         </header>
-        <main class="dashboard-welcome">
-            <h1 id="welcomeHeading">Welcome to Your Dashboard</h1>
-            <p id="welcomeSubheading">Your journey to mental wellness starts now. We're glad you're here.</p>
+        <main class="dashboard-content" id="dashboardContent">
+            <h1 id="welcomeHeading">Dashboard</h1>
+            <p id="welcomeSubheading">This is your personal space. More features coming soon!</p>
             <p id="userInfo"></p>
         </main>
     </div>
@@ -160,55 +141,38 @@
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
 
-        const logoutBtn = document.getElementById('logoutBtn');
-        const logoutBtnContainer = logoutBtn.parentElement;
-        const userInfo = document.getElementById('userInfo');
+        const navLinks = document.getElementById('navLinks');
+        const dashboardContent = document.getElementById('dashboardContent');
         const welcomeHeading = document.getElementById('welcomeHeading');
         const welcomeSubheading = document.getElementById('welcomeSubheading');
-        const navLinks = document.querySelector('nav ul');
+        const userInfo = document.getElementById('userInfo');
 
         // --- Auth State Observer ---
         onAuthStateChanged(auth, user => {
             if (user) {
-                // User is signed in. Display dashboard content.
-                logoutBtnContainer.style.display = 'block';
+                // User is signed in.
+                dashboardContent.style.display = 'block';
                 navLinks.innerHTML = `
                     <li><a href="./index.html">Home</a></li>
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="#">Profile</a></li>
+                    <li><a href="./dashboard.html" class="active">Dashboard</a></li>
+                    <li><a href="#" id="logoutLink">Logout</a></li>
                 `;
-                
-                console.log('User is logged in:', user);
-                const userName = user.displayName || 'User';
-                welcomeHeading.textContent = `Welcome back, ${userName}!`;
-                welcomeSubheading.textContent = "Your journey to mental wellness starts now. We're glad you're here.";
-                userInfo.textContent = `Logged in as: ${user.email}`;
+                 document.getElementById('logoutLink').addEventListener('click', e => {
+                    e.preventDefault();
+                    signOut(auth);
+                });
+                welcomeHeading.textContent = `Welcome, ${user.displayName || 'User'}`;
+                userInfo.textContent = ``;
+
             } else {
-                // No user is signed in. Display a login prompt.
-                console.log('No user is logged in. Updating UI to show login prompt.');
-                
-                logoutBtnContainer.style.display = 'none';
+                // No user is signed in.
                 navLinks.innerHTML = `
                     <li><a href="./index.html">Home</a></li>
                     <li><a href="./login.html">Login</a></li>
                 `;
-                
                 welcomeHeading.textContent = 'Access Denied';
-                welcomeSubheading.textContent = 'You must be logged in to view the dashboard.';
-                userInfo.innerHTML = `Please <a href="./login.html">click here to log in.</a>`;
+                welcomeSubheading.innerHTML = `You must be logged in to view this page. Please <a href="./login.html">log in.</a>`;
             }
-        });
-
-        // --- Logout Functionality ---
-        logoutBtn.addEventListener('click', () => {
-            signOut(auth).then(() => {
-                // Sign-out successful.
-                console.log('User signed out.');
-                // The onAuthStateChanged observer will handle updating the UI.
-            }).catch((error) => {
-                // An error happened.
-                console.error('Sign out error:', error);
-            });
         });
     </script>
 </body>
