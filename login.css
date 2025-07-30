@@ -1,0 +1,126 @@
+/* --- Authentication Page Styles --- */
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 0;
+    min-height: calc(100vh - 150px); /* Adjust based on header/footer height */
+}
+
+.auth-box {
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    border: 1px solid var(--border-light);
+}
+
+.auth-box h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.auth-box p {
+    color: var(--text-light);
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #DDD;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-purple);
+}
+
+.input-group small {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 5px;
+    display: block;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.remember-me label {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.forgot-password {
+    color: var(--primary-purple);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-purple);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.auth-btn:hover {
+    background-color: #5851b9;
+}
+
+.error-message {
+    color: #D32F2F; /* A standard error red color */
+    font-size: 14px;
+    margin-top: 15px;
+    min-height: 20px; /* Reserve space to prevent layout shift */
+}
+
+.switch-form {
+    margin-top: 25px;
+    font-size: 14px;
+}
+
+.switch-form a {
+    color: var(--primary-purple);
+    font-weight: 600;
+    text-decoration: none;
+}
