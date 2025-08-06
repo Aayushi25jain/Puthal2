@@ -1,120 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login & Signup - Puthal</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* All necessary styles are included here for a single-file solution */
-        :root {
-            --primary-purple: #6A62D2;
-            --text-dark: #1E1E1E;
-            --text-light: #555;
-            --card-bg: #FFFFFF;
-            --border-light: #EAEAEA;
-        }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--card-bg); color: var(--text-dark); margin: 0; padding: 0; }
-        * { box-sizing: border-box; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--border-light); }
-        .logo { font-size: 28px; font-weight: 700; display: flex; align-items: center; }
-        .logo span { background-color: var(--primary-purple); color: white; width: 36px; height: 36px; display: inline-flex; justify-content: center; align-items: center; border-radius: 8px; margin-right: 10px; font-weight: 600; }
-        nav ul { list-style: none; display: flex; gap: 40px; margin:0; padding:0; }
-        nav a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 16px; }
-        .auth-container { display: flex; justify-content: center; align-items: center; padding: 80px 20px; }
-        .auth-box { background-color: var(--card-bg); padding: 40px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); width: 100%; max-width: 450px; text-align: center; border: 1px solid var(--border-light); }
-        .auth-box h2 { font-size: 32px; font-weight: 700; margin-bottom: 10px; }
-        .auth-box p { color: var(--text-light); margin-bottom: 30px; }
-        .input-group { margin-bottom: 20px; text-align: left; }
-        .input-group label { display: block; font-weight: 500; margin-bottom: 8px; }
-        .input-group input { width: 100%; padding: 12px 15px; border: 1px solid #DDD; border-radius: 8px; font-size: 16px; }
-        .input-group small { font-size: 12px; color: var(--text-light); margin-top: 5px; display: block; }
-        .form-options { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; font-size: 14px; }
-        .remember-me { display: flex; align-items: center; gap: 8px; }
-        .forgot-password { color: var(--primary-purple); text-decoration: none; font-weight: 500; }
-        .auth-btn { width: 100%; padding: 15px; background-color: var(--primary-purple); color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; }
-        .error-message { color: #D32F2F; font-size: 14px; margin-top: 15px; min-height: 20px; }
-        .success-message { color: #28a745; font-size: 14px; margin-top: 15px; min-height: 20px; }
-        .switch-form { margin-top: 25px; font-size: 14px; }
-        .switch-form a { color: var(--primary-purple); font-weight: 600; text-decoration: none; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Signup - Puthal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-purple: #6A62D2;
+      --text-dark: #1E1E1E;
+      --text-light: #555;
+      --card-bg: #FFFFFF;
+      --border-light: #EAEAEA;
+    }
+    body { font-family: 'Poppins', sans-serif; background-color: var(--card-bg); color: var(--text-dark); margin: 0; padding: 0; }
+    * { box-sizing: border-box; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--border-light); }
+    .logo { font-size: 28px; font-weight: 700; display: flex; align-items: center; }
+    .logo span { background-color: var(--primary-purple); color: white; width: 36px; height: 36px; display: inline-flex; justify-content: center; align-items: center; border-radius: 8px; margin-right: 10px; font-weight: 600; }
+    nav ul { list-style: none; display: flex; gap: 40px; margin:0; padding:0; }
+    nav a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 16px; }
+    .auth-container { display: flex; justify-content: center; align-items: center; padding: 80px 20px; min-height: calc(100vh - 150px);}
+    .auth-box { background-color: var(--card-bg); padding: 40px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); width: 100%; max-width: 450px; text-align: center; border: 1px solid var(--border-light); }
+    .auth-box h2 { font-size: 32px; font-weight: 700; margin-bottom: 10px; }
+    .auth-box p { color: var(--text-light); margin-bottom: 30px; }
+    .input-group { margin-bottom: 20px; text-align: left; }
+    .input-group label { display: block; font-weight: 500; margin-bottom: 8px; }
+    .input-group input { width: 100%; padding: 12px 15px; border: 1px solid #DDD; border-radius: 8px; font-size: 16px; }
+    .input-group small { font-size: 12px; color: var(--text-light); margin-top: 5px; display: block; }
+    .form-options { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; font-size: 14px; }
+    .remember-me { display: flex; align-items: center; gap: 8px; }
+    .forgot-password { color: var(--primary-purple); text-decoration: none; font-weight: 500; cursor: pointer;}
+    .auth-btn { width: 100%; padding: 15px; background-color: var(--primary-purple); color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; }
+    .error-message { color: #D32F2F; font-size: 14px; margin-top: 15px; min-height: 20px; }
+    .success-message { color: #28a745; font-size: 14px; margin-top: 15px; min-height: 20px; }
+    .switch-form { margin-top: 25px; font-size: 14px; }
+    .switch-form a { color: var(--primary-purple); font-weight: 600; text-decoration: none; cursor:pointer;}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo"><span>P</span> Puthal</div>
-            <nav>
-                <ul>
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main class="auth-container">
-            <div class="auth-box" id="loginBox">
-                <h2>Welcome Back!</h2>
-                <form id="loginForm">
-                    <div class="input-group"><label for="loginEmail">Email</label><input type="email" id="loginEmail" required></div>
-                    <div class="input-group"><label for="loginPassword">Password</label><input type="password" id="loginPassword" required></div>
-                    <div class="form-options"><div class="remember-me"><input type="checkbox" id="rememberMe"><label for="rememberMe">Remember Me</label></div><a href="#" class="forgot-password">Forgot Password?</a></div>
-                    <button type="submit" class="auth-btn">Log In</button>
-                    <p id="loginError" class="error-message"></p>
-                </form>
-                <p class="switch-form">Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
+  <div class="container">
+    <header>
+      <div class="logo"><span>P</span> Puthal</div>
+      <nav>
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="auth-container">
+      <!-- Login Box -->
+      <div class="auth-box" id="loginBox">
+        <h2>Welcome Back!</h2>
+        <form id="loginForm">
+          <div class="input-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" required>
+          </div>
+          <div class="input-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" required>
+          </div>
+          <div class="form-options">
+            <div class="remember-me">
+              <input type="checkbox" id="rememberMe">
+              <label for="rememberMe">Remember Me</label>
             </div>
-            <div class="auth-box" id="signupBox" style="display: none;">
-                <h2>Create Your Account</h2>
-                <form id="signupForm">
-                    <div class="input-group"><label for="signupName">Name</label><input type="text" id="signupName" required></div>
-                    <div class="input-group"><label for="signupEmail">Email</label><input type="email" id="signupEmail" required></div>
-                    <div class="input-group"><label for="signupPassword">Password</label><input type="password" id="signupPassword" required><small>Password must be at least 6 characters long.</small></div>
-                    <div class="input-group"><label for="confirmPassword">Confirm Password</label><input type="password" id="confirmPassword" required></div>
-                    <button type="submit" class="auth-btn">Create Account</button>
-                    <p id="signupError" class="error-message"></p>
-                    <p id="signupSuccess" class="success-message"></p>
-                </form>
-                <p class="switch-form">Already have an account? <a href="#" id="showLogin">Log in</a></p>
-            </div>
-        </main>
-    </div>
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, setPersistence, browserSessionPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
-        const firebaseConfig = { apiKey: "AIzaSyBOhAUsXApTxxwUCDFJ3Dky99WVgTlOLWw", authDomain: "internship-4a323.firebaseapp.com", projectId: "internship-4a323", storageBucket: "internship-4a323.appspot.com", messagingSenderId: "953845773650", appId: "1:953845773650:web:a31bed78777aeb7b61368b", measurementId: "G-4Y753MCEG5" };
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const loginBox = document.getElementById('loginBox'), signupBox = document.getElementById('signupBox'), showSignup = document.getElementById('showSignup'), showLogin = document.getElementById('showLogin'), loginForm = document.getElementById('loginForm'), signupForm = document.getElementById('signupForm'), loginError = document.getElementById('loginError'), signupError = document.getElementById('signupError'), signupSuccess = document.getElementById('signupSuccess'), rememberMe = document.getElementById('rememberMe');
-        showSignup.addEventListener('click', e => { e.preventDefault(); loginBox.style.display = 'none'; signupBox.style.display = 'block'; });
-        showLogin.addEventListener('click', e => { e.preventDefault(); signupBox.style.display = 'none'; loginBox.style.display = 'block'; });
-        signupForm.addEventListener('submit', e => {
-            e.preventDefault();
-            signupError.textContent = ''; signupSuccess.textContent = '';
-            const name = signupForm.signupName.value, email = signupForm.signupEmail.value, password = signupForm.signupPassword.value, confirmPassword = signupForm.confirmPassword.value;
-            if (name.trim() === '' || email.trim() === '' || password.trim() === '' || confirmPassword.trim() === '') { signupError.textContent = 'Please fill in all fields.'; return; }
-            if (password.length < 6) { signupError.textContent = 'Password must be at least 6 characters long.'; return; }
-            if (password !== confirmPassword) { signupError.textContent = 'Passwords do not match.'; return; }
-            createUserWithEmailAndPassword(auth, email, password)
-                .then(userCredential => updateProfile(userCredential.user, { displayName: name }))
-                .then(() => {
-                    signupSuccess.textContent = 'Signup Successful! Redirecting...';
-                    setTimeout(() => { window.location.href = './index.html'; }, 1500);
-                })
-                .catch(error => { signupError.textContent = error.code === 'auth/email-already-in-use' ? 'This email address is already in use.' : error.message; });
+            <a href="#" class="forgot-password">Forgot Password?</a>
+          </div>
+          <button type="submit" class="auth-btn">Log In</button>
+          <p id="loginError" class="error-message"></p>
+        </form>
+        <p class="switch-form">Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
+      </div>
+
+      <!-- Signup Box -->
+      <div class="auth-box" id="signupBox" style="display: none;">
+        <h2>Create Your Account</h2>
+        <form id="signupForm">
+          <div class="input-group">
+            <label for="signupName">Name</label>
+            <input type="text" id="signupName" required>
+          </div>
+          <div class="input-group">
+            <label for="signupEmail">Email</label>
+            <input type="email" id="signupEmail" required>
+          </div>
+          <div class="input-group">
+            <label for="signupPassword">Password</label>
+            <input type="password" id="signupPassword" required>
+            <small>Password must be at least 6 characters long.</small>
+          </div>
+          <div class="input-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" required>
+          </div>
+          <button type="submit" class="auth-btn">Create Account</button>
+          <p id="signupError" class="error-message"></p>
+          <p id="signupSuccess" class="success-message"></p>
+        </form>
+        <p class="switch-form">Already have an account? <a href="#" id="showLogin">Log in</a></p>
+      </div>
+
+      <!-- Forgot Password Box -->
+      <div class="auth-box" id="forgotBox" style="display:none;">
+        <h2>Reset Password</h2>
+        <form id="forgotForm">
+          <div class="input-group">
+            <label for="forgotEmail">Registered Email</label>
+            <input type="email" id="forgotEmail" required>
+          </div>
+          <button type="submit" class="auth-btn">Send Reset Link</button>
+          <p id="forgotError" class="error-message"></p>
+          <p id="forgotSuccess" class="success-message"></p>
+        </form>
+        <p class="switch-form"><a href="#" id="backToLogin">Back to Login</a></p>
+      </div>
+    </main>
+  </div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+    import { 
+      getAuth, 
+      createUserWithEmailAndPassword, 
+      signInWithEmailAndPassword, 
+      updateProfile, 
+      setPersistence, 
+      browserSessionPersistence, 
+      browserLocalPersistence,
+      sendPasswordResetEmail
+    } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+
+    const firebaseConfig = { 
+      apiKey: "AIzaSyBOhAUsXApTxxwUCDFJ3Dky99WVgTlOLWw", 
+      authDomain: "internship-4a323.firebaseapp.com", 
+      projectId: "internship-4a323", 
+      storageBucket: "internship-4a323.appspot.com", 
+      messagingSenderId: "953845773650", 
+      appId: "1:953845773650:web:a31bed78777aeb7b61368b", 
+      measurementId: "G-4Y753MCEG5" 
+    };
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Elements
+    const loginBox = document.getElementById('loginBox'),
+      signupBox = document.getElementById('signupBox'),
+      showSignup = document.getElementById('showSignup'),
+      showLogin = document.getElementById('showLogin'),
+      loginForm = document.getElementById('loginForm'),
+      signupForm = document.getElementById('signupForm'),
+      loginError = document.getElementById('loginError'),
+      signupError = document.getElementById('signupError'),
+      signupSuccess = document.getElementById('signupSuccess'),
+      rememberMe = document.getElementById('rememberMe');
+
+    // ---- Show/Hide Forms ----
+    showSignup.addEventListener('click', e => {
+      e.preventDefault();
+      loginBox.style.display = 'none';
+      signupBox.style.display = 'block';
+      forgotBox.style.display = 'none';
+    });
+    showLogin.addEventListener('click', e => {
+      e.preventDefault();
+      signupBox.style.display = 'none';
+      loginBox.style.display = 'block';
+      forgotBox.style.display = 'none';
+    });
+
+    // ---- Signup ----
+    signupForm.addEventListener('submit', e => {
+      e.preventDefault();
+      signupError.textContent = ''; 
+      signupSuccess.textContent = '';
+      const name = signupForm.signupName.value,
+            email = signupForm.signupEmail.value,
+            password = signupForm.signupPassword.value,
+            confirmPassword = signupForm.confirmPassword.value;
+      if (name.trim() === '' || email.trim() === '' || password.trim() === '' || confirmPassword.trim() === '') {
+        signupError.textContent = 'Please fill in all fields.'; return;
+      }
+      if (password.length < 6) {
+        signupError.textContent = 'Password must be at least 6 characters long.'; return;
+      }
+      if (password !== confirmPassword) {
+        signupError.textContent = 'Passwords do not match.'; return;
+      }
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(userCredential => updateProfile(userCredential.user, { displayName: name }))
+        .then(() => {
+          signupSuccess.textContent = 'Signup Successful! Redirecting...';
+          setTimeout(() => { window.location.href = './index.html'; }, 1500);
+        })
+        .catch(error => { 
+          signupError.textContent = error.code === 'auth/email-already-in-use' ? 
+            'This email address is already in use.' : error.message; 
         });
-        loginForm.addEventListener('submit', e => {
-            e.preventDefault();
-            loginError.textContent = '';
-            const email = loginForm.loginEmail.value, password = loginForm.loginPassword.value;
-            if (email.trim() === '' || password.trim() === '') { loginError.textContent = 'Please enter both email and password.'; return; }
-            setPersistence(auth, rememberMe.checked ? browserLocalPersistence : browserSessionPersistence)
-              .then(() => signInWithEmailAndPassword(auth, email, password))
-              .then(() => { window.location.href = './index.html'; })
-              .catch(() => { loginError.textContent = 'Invalid credentials. Please try again.'; });
+    });
+
+    // ---- Login ----
+    loginForm.addEventListener('submit', e => {
+      e.preventDefault();
+      loginError.textContent = '';
+      const email = loginForm.loginEmail.value, password = loginForm.loginPassword.value;
+      if (email.trim() === '' || password.trim() === '') { loginError.textContent = 'Please enter both email and password.'; return; }
+      setPersistence(auth, rememberMe.checked ? browserLocalPersistence : browserSessionPersistence)
+        .then(() => signInWithEmailAndPassword(auth, email, password))
+        .then(() => { window.location.href = './index.html'; })
+        .catch(() => { loginError.textContent = 'Invalid credentials. Please try again.'; });
+    });
+
+    // ----------- FORGOT PASSWORD FUNCTIONALITY -------------
+    const forgotBox = document.getElementById('forgotBox');
+    const forgotForm = document.getElementById('forgotForm');
+    const forgotEmail = document.getElementById('forgotEmail');
+    const forgotError = document.getElementById('forgotError');
+    const forgotSuccess = document.getElementById('forgotSuccess');
+    const forgotPasswordLink = document.querySelector('.forgot-password');
+    const backToLogin = document.getElementById('backToLogin');
+
+    // Show forgot form
+    forgotPasswordLink.addEventListener('click', e => {
+      e.preventDefault();
+      loginBox.style.display = "none";
+      signupBox.style.display = "none";
+      forgotBox.style.display = "block";
+      forgotForm.reset();
+      forgotError.textContent = "";
+      forgotSuccess.textContent = "";
+    });
+
+    // Back to login from forgot
+    backToLogin.addEventListener('click', e => {
+      e.preventDefault();
+      forgotBox.style.display = "none";
+      signupBox.style.display = "none";
+      loginBox.style.display = "block";
+      forgotForm.reset();
+      forgotError.textContent = "";
+      forgotSuccess.textContent = "";
+    });
+
+    // Handle reset password
+    forgotForm.addEventListener('submit', e => {
+      e.preventDefault();
+      forgotError.textContent = "";
+      forgotSuccess.textContent = "";
+      const email = forgotEmail.value.trim();
+      if (!email) {
+        forgotError.textContent = "Please enter your email.";
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        forgotError.textContent = "Please enter a valid email address.";
+        return;
+      }
+      sendPasswordResetEmail(auth, email)
+        .then(() => {
+          forgotSuccess.textContent = "If the email exists, a reset link was sent. Please check your inbox.";
+          forgotError.textContent = "";
+        })
+        .catch(() => {
+          // Always display a generic message to avoid information leakage
+          forgotSuccess.textContent = "If the email exists, a reset link was sent. Please check your inbox.";
+          forgotError.textContent = "";
         });
-    </script>
+    });
+  </script>
 </body>
 </html>
