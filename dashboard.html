@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dashboard - Puthal</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --primary-purple: #6A62D2;
@@ -14,38 +14,95 @@
       --text-light: #555;
       --border-light: #EAEAEA;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Poppins', sans-serif; background-color: #FFFFFF; color: var(--text-dark); }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #FFFFFF;
+      color: var(--text-dark);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
     header {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 20px 0; border-bottom: 1px solid var(--border-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border-light);
     }
-    .logo { font-size: 28px; font-weight: 700; display: flex; align-items: center; }
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+    }
     .logo span {
-      background-color: var(--primary-purple); color: white; width: 36px; height: 36px;
-      display: inline-flex; justify-content: center; align-items: center; border-radius: 8px; margin-right: 10px; font-weight: 600;
+      background-color: var(--primary-purple);
+      color: white;
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      margin-right: 10px;
+      font-weight: 600;
     }
-    nav ul { list-style: none; display: flex; gap: 40px; }
-    nav a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 16px; }
-    nav a.active { color: var(--text-dark); font-weight: 600; }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--text-light);
+      font-weight: 500;
+      font-size: 16px;
+    }
+    nav a.active {
+      color: var(--text-dark);
+      font-weight: 600;
+    }
     .dashboard-content {
-      text-align: center; padding: 100px 20px;
+      text-align: center;
+      padding: 100px 20px;
     }
     .dashboard-content h1 {
-      font-size: 48px; color: var(--text-dark); font-weight: 700;
+      font-size: 48px;
+      color: var(--text-dark);
+      font-weight: 700;
       margin-bottom: 15px;
     }
     .dashboard-content p {
-      font-size: 18px; color: var(--text-light); margin-top: 10px;
+      font-size: 18px;
+      color: var(--text-light);
+      margin-top: 10px;
     }
     #userInfo a {
-      color: var(--primary-purple); font-weight: 600; text-decoration: underline;
+      color: var(--primary-purple);
+      font-weight: 600;
+      text-decoration: underline;
     }
+    /* Toast notification for logout */
     .logout-toast {
-      position: fixed; top: 12px; right: 24px; background: #32a852;
-      color: #fff; padding: 15px 24px; border-radius: 8px; font-weight: 500;
-      font-size: 16px; z-index:999; box-shadow:0 2px 8px rgba(0,0,0,0.15); display:none;
+      position: fixed;
+      top: 12px;
+      right: 24px;
+      background: #32a852;
+      color: #fff;
+      padding: 15px 24px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 16px;
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      display: none;
     }
   </style>
 </head>
@@ -57,7 +114,7 @@
       </div>
       <nav>
         <ul id="navLinks">
-          <!-- Will be filled dynamically -->
+          <!-- Navigation links dynamically inserted -->
         </ul>
       </nav>
     </header>
@@ -66,11 +123,10 @@
       <p id="welcomeSubheading">This is your personal space. More features coming soon!</p>
       <p id="userInfo"></p>
     </main>
-    <!-- Optional toast/message for logout -->
+    <!-- Logout toast -->
     <div class="logout-toast" id="logoutToast">You have successfully logged out.</div>
   </div>
 
-  <!-- Firebase SDK v9 modular -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
     import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
@@ -95,7 +151,6 @@
     const userInfo = document.getElementById('userInfo');
     const logoutToast = document.getElementById('logoutToast');
 
-    // Motivational quotes
     const quotes = [
       "Today is a new day to care for your mind.",
       "Progress is progress, no matter how small.",
@@ -104,7 +159,6 @@
       "Be kind to yourself, you're doing your best."
     ];
 
-    // Ensure only logged-in users can access
     onAuthStateChanged(auth, user => {
       if (user) {
         // User is logged in
@@ -114,32 +168,31 @@
           <li><a href="./dashboard.html" class="active">Dashboard</a></li>
           <li><a href="#" id="logoutLink">Logout</a></li>
         `;
-        // Handle logout
+        // Logout event with feedback toast
         document.getElementById('logoutLink').addEventListener('click', e => {
           e.preventDefault();
           signOut(auth).then(() => {
-            // Show toast, then redirect
-            if (logoutToast) {
-              logoutToast.style.display = "block";
-              setTimeout(() => {
-                logoutToast.style.display = "none";
-                window.location.href = "./login.html";
-              }, 1200);
-            } else {
+            logoutToast.style.display = "block";
+            setTimeout(() => {
+              logoutToast.style.display = "none";
               window.location.href = "./login.html";
-            }
+            }, 1200);
+          })
+          .catch((error) => {
+            // Handle error if needed
+            alert("Error logging out. Please try again.");
           });
         });
 
-        // Welcome message
-        let userName = user.displayName || '';
-        let userEmail = user.email || '';
+        // Personalized welcome
+        const userName = user.displayName || '';
+        const userEmail = user.email || '';
         welcomeHeading.textContent = `Welcome, ${userName || userEmail || "User"}`;
         welcomeSubheading.textContent = quotes[Math.floor(Math.random() * quotes.length)];
         userInfo.innerHTML = userName ? `Signed in as <strong>${userEmail}</strong>.` : "";
 
       } else {
-        // Not logged in: redirect to login.html
+        // Not logged in - redirect to login
         window.location.href = "./login.html";
       }
     });
