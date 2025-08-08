@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - Puthal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary-purple: #6A62D2;
+      --text-dark: #1E1E1E;
+      --text-light: #555;
+      --border-light: #EAEAEA;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #FFFFFF;
+      color: var(--text-dark);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+    }
+    .logo span {
+      background-color: var(--primary-purple);
+      color: white;
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      margin-right: 10px;
+      font-weight: 600;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--text-light);
+      font-weight: 500;
+      font-size: 16px;
+    }
+    nav a.active {
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+    .dashboard-content {
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .dashboard-content h1 {
+      font-size: 48px;
+      color: var(--text-dark);
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    .dashboard-content p {
+      font-size: 18px;
+      color: var(--text-light);
+      margin-top: 10px;
+    }
+    #userInfo a {
+      color: var(--primary-purple);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+    /* Dashboard Grid Layout */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      padding: 24px;
+    }
+
+    .dashboard-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border-light);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .card-header h2 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    /* Mood Chart Styles */
+    .mood-chart {
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+      height: 200px;
+      padding: 20px 0;
+    }
+
+    .mood-bar {
+      flex: 1;
+      background: var(--primary-purple);
+      border-radius: 4px 4px 0 0;
+      position: relative;
+    }
+
+    .mood-bar-label {
+      position: absolute;
+      bottom: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    /* Upcoming Sessions Styles */
+    .session-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .session-item {
+      padding: 16px;
+      background: var(--light-purple-bg);
+      border-radius: 8px;
+    }
+
+    .session-item h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .session-item p {
+      font-size: 14px;
+      color: var(--text-light);
+    }
+
+    /* Journal Entries Styles */
+    .new-entry-btn {
+      background: var(--primary-purple);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .journal-entry {
+      padding: 16px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .journal-entry:last-child {
+      border-bottom: none;
+    }
+
+    .journal-entry h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .journal-entry .date {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+
+    .journal-entry p {
+      font-size: 14px;
+      color: var(--text-light);
+    }
+
+    /* Goals Checklist Styles */
+    .goals-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .goal-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .goal-item input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--primary-purple);
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .goal-item label {
+      font-size: 14px;
+      color: var(--text-dark);
+      cursor: pointer;
+    }
+
+    /* Toast notification for logout */
+    .logout-toast {
+      position: fixed;
+      top: 12px;
+      right: 24px;
+      background: #32a852;
+      color: #fff;
+      padding: 15px 24px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 16px;
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <span>P</span> Puthal
+      </div>
+      <nav>
+        <ul id="navLinks">
+          <!-- Navigation links dynamically inserted -->
+        </ul>
+      </nav>
+    </header>
+    <main class="dashboard-content" id="dashboardContent">
+      <h1 id="welcomeHeading">Dashboard</h1>
+      <p id="userInfo"></p>
+      
+      <div class="dashboard-grid">
+        <!-- Weekly Mood Trend Card -->
+        <div class="dashboard-card">
+          <div class="card-header">
+            <h2>Weekly Mood Trend</h2>
+          </div>
+          <div class="mood-chart">
+            <div class="mood-bar" style="height: 60%">
+              <span class="mood-bar-label">Mon</span>
+            </div>
+            <div class="mood-bar" style="height: 75%">
+              <span class="mood-bar-label">Tue</span>
+            </div>
+            <div class="mood-bar" style="height: 85%">
+              <span class="mood-bar-label">Wed</span>
+            </div>
+            <div class="mood-bar" style="height: 70%">
+              <span class="mood-bar-label">Thu</span>
+            </div>
+            <div class="mood-bar" style="height: 90%">
+              <span class="mood-bar-label">Fri</span>
+            </div>
+            <div class="mood-bar" style="height: 80%">
+              <span class="mood-bar-label">Sat</span>
+            </div>
+            <div class="mood-bar" style="height: 85%">
+              <span class="mood-bar-label">Sun</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Upcoming Sessions Card -->
+        <div class="dashboard-card">
+          <div class="card-header">
+            <h2>Upcoming Sessions</h2>
+          </div>
+          <div class="session-list">
+            <div class="session-item">
+              <h3>Dr. Sarah Johnson</h3>
+              <p>Tomorrow at 2:00 PM</p>
+            </div>
+            <div class="session-item">
+              <h3>Group Meditation with James</h3>
+              <p>Friday at 10:00 AM</p>
+            </div>
+            <div class="session-item">
+              <h3>Dr. Michael Chen</h3>
+              <p>Next Monday at 3:30 PM</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Journal Entries Card -->
+        <div class="dashboard-card">
+          <div class="card-header">
+            <h2>Recent Journal Entries</h2>
+            <button class="new-entry-btn">New Entry</button>
+          </div>
+          <div class="journal-entries">
+            <div class="journal-entry">
+              <h3>Finding Peace in Small Moments</h3>
+              <div class="date">Today, 2:30 PM</div>
+              <p>Today I practiced mindfulness during my morning coffee...</p>
+            </div>
+            <div class="journal-entry">
+              <h3>Weekly Reflection</h3>
+              <div class="date">Yesterday, 8:15 PM</div>
+              <p>This week brought some challenges but also growth...</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Daily Wellness Goals Card -->
+        <div class="dashboard-card">
+          <div class="card-header">
+            <h2>Daily Wellness Goals</h2>
+          </div>
+          <div class="goals-list">
+            <div class="goal-item">
+              <input type="checkbox" id="goal1" checked>
+              <label for="goal1">Meditate for 10 minutes</label>
+            </div>
+            <div class="goal-item">
+              <input type="checkbox" id="goal2" checked>
+              <label for="goal2">Go for a 30-minute walk</label>
+            </div>
+            <div class="goal-item">
+              <input type="checkbox" id="goal3">
+              <label for="goal3">Drink 8 glasses of water</label>
+            </div>
+            <div class="goal-item">
+              <input type="checkbox" id="goal4">
+              <label for="goal4">Practice gratitude journaling</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Logout toast -->
+    <div class="logout-toast" id="logoutToast">You have successfully logged out.</div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBOhAUsXApTxxwUCDFJ3Dky99WVgTlOLWw",
+      authDomain: "internship-4a323.firebaseapp.com",
+      projectId: "internship-4a323",
+      storageBucket: "internship-4a323.appspot.com",
+      messagingSenderId: "953845773650",
+      appId: "1:953845773650:web:a31bed78777aeb7b61368b",
+      measurementId: "G-4Y753MCEG5"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const navLinks = document.getElementById('navLinks');
+    const dashboardContent = document.getElementById('dashboardContent');
+    const welcomeHeading = document.getElementById('welcomeHeading');
+    const welcomeSubheading = document.getElementById('welcomeSubheading');
+    const userInfo = document.getElementById('userInfo');
+    const logoutToast = document.getElementById('logoutToast');
+
+    const quotes = [
+      "Today is a new day to care for your mind.",
+      "Progress is progress, no matter how small.",
+      "You are stronger than you think.",
+      "Your feelings are valid.",
+      "Be kind to yourself, you're doing your best."
+    ];
+
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        // User is logged in
+        dashboardContent.style.display = 'block';
+        navLinks.innerHTML = `
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./dashboard.html" class="active">Dashboard</a></li>
+          <li><a href="./features.html">Features</a></li>
+          <li><a href="./about.html">About</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+          <li><a href="#" id="logoutLink">Logout</a></li>
+        `;
+        // Logout event with feedback toast
+        document.getElementById('logoutLink').addEventListener('click', e => {
+          e.preventDefault();
+          signOut(auth).then(() => {
+            logoutToast.style.display = "block";
+            setTimeout(() => {
+              logoutToast.style.display = "none";
+              window.location.href = "./login.html";
+            }, 1200);
+          })
+          .catch((error) => {
+            // Handle error if needed
+            alert("Error logging out. Please try again.");
+          });
+        });
+
+        // Personalized welcome
+        const userName = user.displayName || '';
+        const userEmail = user.email || '';
+        welcomeHeading.textContent = `Welcome, ${userName || userEmail || "User"}`;
+        welcomeSubheading.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+        userInfo.innerHTML = userName ? `Signed in as <strong>${userEmail}</strong>.` : "";
+
+      } else {
+        // Not logged in - redirect to login
+        window.location.href = "./login.html";
+      }
+    });
+  </script>
+</body>
+</html>

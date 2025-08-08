@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Puthal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span>P</span> Puthal
+            </div>
+            <nav>
+                <ul id="navLinks">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./features.html">Features</a></li>
+                    <li><a href="./login.html">Login / Sign Up</a></li>
+                    <li><a href="./contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="search-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </div>
+        </header>
+
+        <main class="contact-content">
+            <section class="contact-hero">
+                <div class="container">
+                    <div class="contact-text">
+                        <h1>Get in Touch</h1>
+                        <p class="hero-subtitle">We're here to help you on your mental wellness journey. Reach out to us anytime.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contact-main">
+                <div class="container">
+                    <div class="contact-grid">
+                        <div class="contact-form-section">
+                            <h2>Send us a Message</h2>
+                            <form class="contact-form" id="contactForm">
+                                <div class="form-row">
+                                    <div class="input-group">
+                                        <label for="firstName">First Name</label>
+                                        <input type="text" id="firstName" name="firstName" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="lastName">Last Name</label>
+                                        <input type="text" id="lastName" name="lastName" required>
+                                    </div>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="phone">Phone Number (Optional)</label>
+                                    <input type="tel" id="phone" name="phone">
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="subject">Subject</label>
+                                    <select id="subject" name="subject" required>
+                                        <option value="">Select a topic</option>
+                                        <option value="general">General Inquiry</option>
+                                        <option value="technical">Technical Support</option>
+                                        <option value="billing">Billing Question</option>
+                                        <option value="partnership">Partnership Opportunity</option>
+                                        <option value="press">Press & Media</option>
+                                        <option value="feedback">Feedback & Suggestions</option>
+                                        <option value="crisis">Crisis Support (Urgent)</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" name="message" rows="6" placeholder="Tell us how we can help you..." required></textarea>
+                                </div>
+
+                                <div class="form-checkbox">
+                                    <input type="checkbox" id="newsletter" name="newsletter">
+                                    <label for="newsletter">I'd like to receive updates and mental health tips via email</label>
+                                </div>
+
+                                <button type="submit" class="contact-btn">Send Message</button>
+                                <div class="form-note">
+                                    <p><strong>Crisis Support:</strong> If you're experiencing a mental health emergency, please contact your local emergency services or call the National Suicide Prevention Lifeline at 988.</p>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="contact-info-section">
+                            <div class="contact-card">
+                                <h3>Contact Information</h3>
+                                <div class="contact-details">
+                                    <div class="contact-item">
+                                        <div class="contact-icon">📧</div>
+                                        <div>
+                                            <strong>Email</strong>
+                                            <p>support@puthal.com</p>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item">
+                                        <div class="contact-icon">📞</div>
+                                        <div>
+                                            <strong>Phone</strong>
+                                            <p>+1 (555) 123-HELP</p>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item">
+                                        <div class="contact-icon">📍</div>
+                                        <div>
+                                            <strong>Address</strong>
+                                            <p>123 Wellness Street<br>San Francisco, CA 94105<br>United States</p>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item">
+                                        <div class="contact-icon">🕒</div>
+                                        <div>
+                                            <strong>Support Hours</strong>
+                                            <p>Monday - Friday: 9AM - 6PM PST<br>Weekend: 10AM - 4PM PST</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="emergency-card">
+                                <h3>🚨 Emergency Resources</h3>
+                                <div class="emergency-info">
+                                    <div class="emergency-item">
+                                        <strong>National Suicide Prevention Lifeline</strong>
+                                        <p>988 or 1-800-273-8255</p>
+                                    </div>
+                                    <div class="emergency-item">
+                                        <strong>Crisis Text Line</strong>
+                                        <p>Text HOME to 741741</p>
+                                    </div>
+                                    <div class="emergency-item">
+                                        <strong>SAMHSA National Helpline</strong>
+                                        <p>1-800-662-4357</p>
+                                    </div>
+                                    <div class="emergency-item">
+                                        <strong>Emergency Services</strong>
+                                        <p>911 (US) or your local emergency number</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="social-card">
+                                <h3>Follow Us</h3>
+                                <div class="social-links">
+                                    <a href="#" class="social-link">
+                                        <div class="social-icon">📘</div>
+                                        <span>Facebook</span>
+                                    </a>
+                                    <a href="#" class="social-link">
+                                        <div class="social-icon">📷</div>
+                                        <span>Instagram</span>
+                                    </a>
+                                    <a href="#" class="social-link">
+                                        <div class="social-icon">🐦</div>
+                                        <span>Twitter</span>
+                                    </a>
+                                    <a href="#" class="social-link">
+                                        <div class="social-icon">💼</div>
+                                        <span>LinkedIn</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="faq-section">
+                <div class="container">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-grid">
+                        <div class="faq-item">
+                            <h3>How quickly can I expect a response?</h3>
+                            <p>We typically respond to general inquiries within 24-48 hours during business days. For technical support, our average response time is 4-6 hours. Crisis support inquiries are prioritized and handled immediately.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3>Is my information secure when I contact you?</h3>
+                            <p>Yes, all communications through our contact forms are encrypted and handled according to HIPAA privacy standards. We never share your personal information with third parties without your explicit consent.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3>Can I schedule a demo of the platform?</h3>
+                            <p>Absolutely! Select "Partnership Opportunity" or "General Inquiry" from the subject dropdown and mention your interest in a demo. Our team will coordinate a personalized walkthrough at your convenience.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3>Do you offer support in languages other than English?</h3>
+                            <p>Currently, our primary support is in English, but we have Spanish and Mandarin support available. Please mention your preferred language in your message.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3>What if I'm having a mental health crisis?</h3>
+                            <p>If you're experiencing a crisis, please don't wait for our response. Contact emergency services (911) or the crisis resources listed on this page immediately. Our platform is not a substitute for emergency mental health care.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3>Can I suggest new features for the platform?</h3>
+                            <p>Yes! We love hearing from our users. Select "Feedback & Suggestions" from the subject dropdown and share your ideas. We regularly review user suggestions for future updates.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Show success message (in a real app, this would submit to a server)
+            const submitBtn = e.target.querySelector('.contact-btn');
+            const originalText = submitBtn.textContent;
+
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                submitBtn.textContent = 'Message Sent!';
+                submitBtn.style.backgroundColor = '#28a745';
+
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.backgroundColor = '';
+                    e.target.reset();
+                }, 2000);
+            }, 1000);
+        });
+
+        // Check for crisis-related keywords and show urgent resources
+        document.getElementById('subject').addEventListener('change', function() {
+            const emergencyCard = document.querySelector('.emergency-card');
+            if (this.value === 'crisis') {
+                emergencyCard.style.border = '2px solid #dc3545';
+                emergencyCard.style.backgroundColor = '#fff5f5';
+            } else {
+                emergencyCard.style.border = '';
+                emergencyCard.style.backgroundColor = '';
+            }
+        });
+    </script>
+</body>
+</html>
