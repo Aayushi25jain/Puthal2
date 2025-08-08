@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puthal - Mental Health Well-being Reimagined</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .welcome-back-message {
+            display: none; /* Hidden by default */
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary-purple, #6A62D2);
+            margin-bottom: 15px;
+        }
+    </style>
+</head><body>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span>P</span> Puthal
+            </div>
+            <nav>
+                <ul id="navLinks">
+                    <!-- Navigation links will be dynamically inserted here -->
+                </ul>
+            </nav>
+            <div class="search-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </div>
+        </header>
+
+        <main class="hero">
+            <div class="hero-text" id="heroText">
+                <p id="welcomeMessage" class="welcome-back-message"></p>
+                <h1>Mental Health<br>Well-being<br>Reimagined</h1>
+                <p>Empowering individuals to prioritize their mental well-being through innovative technology.</p>
+                <div class="download-buttons">
+                    <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/1280px-Download_on_the_App_Store_Badge.svg.png" alt="Download on the App Store" style="height: 50px;"></a>
+                    <a href="#"><img src="https://i.ibb.co/b3c61PC/google-play-badge.png" alt="Get it on Google Play" style="height: 50px;"></a>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <svg class="leaves-left" width="168" height="480" viewBox="0 0 168 480" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M167.5 480C167.5 480 52.8333 417.667 36 343.5C19.1667 269.333 71.5 147 71.5 147C71.5 147 132.5 220 148 296C163.5 372 167.5 480 167.5 480Z" fill="#E6E7FB"/><path d="M141 480C141 480 37.8333 429.667 23.5 365.5C9.16667 301.333 55 198.5 55 198.5C55 198.5 106 257.5 120 324C134 390.5 141 480 141 480Z" fill="#D9DAF9"/></svg>
+                <svg class="leaves-right" width="243" height="521" viewBox="0 0 243 521" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 521C0 521 163.667 433.333 189.5 321.5C215.333 209.667 134.5 0 134.5 0C134.5 0 102.5 224 81.5 348.5C60.5 473 0 521 0 521Z" fill="#E6E7FB"/><path d="M43.5 521C43.5 521 189.667 444.833 212 344.5C234.333 244.167 165 41.5 165 41.5C165 41.5 124 240 106 354C88 468 43.5 521 43.5 521Z" fill="#D9DAF9"/></svg>
+                <svg class="cloud" width="118" height="78" viewBox="0 0 118 78" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M102.341 24.3824C98.4353 10.4588 85.5176 0 70.8 0C59.9059 0 50.3294 5.22353 44.1176 13.3176C41.0118 11.2235 37.2471 10.0235 33.1412 10.0235C24.8471 10.0235 18.2941 16.5765 18.2941 24.8706C18.2941 25.4306 18.3529 25.9906 18.4706 26.4941C8.03529 30.1765 0 39.5294 0 50.8118C0 65.5176 11.7882 77.3059 26.4941 77.3059H96.4941C108.282 77.3059 118 67.5882 118 55.8C118 45.4118 111.447 36.4471 102.341 24.3824Z" fill="#F0F1FD"/></svg>
+
+                <div class="phone">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <div class="app-content">
+                            <div class="app-logo">Puthal</div>
+                            <p class="welcome-text">Welcome back</p>
+                            <h2>How are you feeling?</h2>
+                            <div class="mood-selector">
+                                <div class="mood">
+                                    <div class="mood-icon">😢</div>
+                                    <span>Sad</span>
+                                </div>
+                                <div class="mood">
+                                    <div class="mood-icon">😊</div>
+                                    <span>Normal</span>
+                                </div>
+                                <div class="mood mood-active">
+                                    <div class="mood-icon">😌</div>
+                                    <span>Cared</span>
+                                </div>
+                                <div class="mood">
+                                    <div class="mood-icon">😝</div>
+                                    <span>Happy</span>
+                                </div>
+                            </div>
+                            <div class="meditation-person">
+                                <svg width="150" height="150" viewBox="0 0 250 248" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M125 74.3999C143.225 74.3999 158 59.6249 158 41.3999C158 23.1749 143.225 8.3999 125 8.3999C106.775 8.3999 92 23.1749 92 41.3999C92 59.6249 106.775 74.3999 125 74.3999Z" fill="#A5A6F6"/><path d="M211.5 239.4L188.5 167.4C188.5 167.4 193 147.4 179 133.4C165 119.4 141 123.4 141 123.4L125 106.4L109 123.4C109 123.4 85 119.4 71 133.4C57 147.4 61.5 167.4 61.5 167.4L38.5 239.4H211.5Z" fill="#A5A6F6"/><path d="M188.5 167.4L241.5 200.4C241.5 200.4 228 213.9 211.5 239.4H38.5C22 213.9 8.5 200.4 8.5 200.4L61.5 167.4C61.5 167.4 57 147.4 71 133.4C85 119.4 109 123.4 109 123.4L125 106.4L141 123.4C141 123.4 165 119.4 179 133.4C193 147.4 188.5 167.4 188.5 167.4Z" fill="#8C8DEF"/><path d="M10 200H240C225.333 215.333 206.5 239.5 206.5 239.5H43.5C43.5 239.5 24.6667 215.333 10 200Z" fill="#A5A6F6"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <section class="features">
+        <div class="container features-container">
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 58C46.3594 58 58 46.3594 58 32C58 17.6406 46.3594 6 32 6C17.6406 6 6 17.6406 6 32C6 46.3594 17.6406 58 32 58Z" stroke="#8A84E2" stroke-width="4" stroke-miterlimit="10"/><path d="M39.625 25.375C41.9375 27.6875 43 30.8125 43 34.25C43 40.3125 38.0625 45.25 32 45.25C25.9375 45.25 21 40.3125 21 34.25C21 30.8125 22.0625 27.6875 24.375 25.375" stroke="#8A84E2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 6V1M45.25 10.125L49.875 5.5M53.875 18.75H59M49.875 28.5L45.25 33.125M53.875 45.25H59M18.75 53.875L14.125 58.5M10.125 45.25H5M14.125 28.5L18.75 33.125M10.125 18.75H5M28.5 14.125L24 18.75M32 6V1M32 58V63M6 32H1M58 32H63" stroke="#8A84E2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3>AI Mood Tracking</h3>
+                <p>AI-driven-mood monitoring</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32.0002 8.35156C19.008 8.35156 8.35156 19.008 8.35156 32.0002C8.35156 44.9923 19.008 55.6487 32.0002 55.6487C44.9923 55.6487 55.6487 44.9923 55.6487 32.0002" stroke="#8A84E2" stroke-width="4" stroke-miterlimit="10" stroke-linecap="round"/><path d="M32 8C32 8 38 15 38 21C38 27 32 34 32 34C32 34 26 27 26 21C26 15 32 8 32 8Z" stroke="#8A84E2" stroke-width="4" stroke-miterlimit="10" stroke-linejoin="round"/><path d="M42 21C42 21 47 25 47 29C47 33 42 37 42 37" stroke="#8A84E2" stroke-width="4" stroke-miterlimit="10" stroke-linecap="round"/><path d="M22 21C22 21 17 25 17 29C17 33 22 37 22 37" stroke="#8A84E2" stroke-width="4" stroke-miterlimit="10" stroke-linecap="round"/><path d="M52 35C52 35 55 37 55 39C55 41 52 43 52 43" stroke="#8A84E2" stroke-width="4" stroke-miterlimit="10" stroke-linecap="round"/><path d="M12 35C12 35 9 37 9 39C9 41 12 43 12 43" stroke="#8A84E2" stroke-width="4" stroke-miterlimit="10" stroke-linecap="round"/><path d="M22 46C22 46 26 49 32 49C38 49 42 46 42 46" stroke="#8A84E2" stroke-width="4" stroke-miterlimit="10" stroke-linecap="round"/></svg>
+                </div>
+                <h3>Mindfulness Exercises</h3>
+                <p>Exercises for Inner peace</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 57C45.8071 57 57 45.8071 57 32C57 18.1929 45.8071 7 32 7C18.1929 7 7 18.1929 7 32C7 45.8071 18.1929 57 32 57Z" stroke="#8A84E2" stroke-width="4" stroke-miterlimit="10" stroke-linejoin="round"/><path d="M32 20V44" stroke="#8A84E2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 32H44" stroke="#8A84E2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3>Therapy & Counseling</h3>
+                <p>Professional support & resources</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.9414 47.9727C21.2305 44.8945 22.4062 42.0312 24.543 39.8086C26.6797 37.5859 29.3242 36.332 32.0002 36.332C34.6762 36.332 37.3203 37.5859 39.4572 39.8086C41.594 42.0312 42.7695 44.8945 43.0586 47.9727" stroke="#8A84E2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 36.332C36.918 36.332 40.9414 32.3086 40.9414 27.3906C40.9414 22.4727 36.918 18.4492 32 18.4492C27.082 18.4492 23.0586 22.4727 23.0586 27.3906C23.0586 32.3086 27.082 36.332 32 36.332Z" stroke="#8A84E2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M50.5625 50.125C50.5625 45.4375 48.75 41.25 45.5 38.125" stroke="#8A84E2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M51.5 29.875C51.5 33.125 49.3125 35.8125 46.5 36.9375" stroke="#8A84E2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.4375 50.125C13.4375 45.4375 15.25 41.25 18.5 38.125" stroke="#8A84E2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.5 29.875C12.5 33.125 14.6875 35.8125 17.5 36.9375" stroke="#8A84E2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3>Community Support</h3>
+                <p>Connect with others</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBOhAUsXApTxxwUCDFJ3Dky99WVgTlOLWw",
+            authDomain: "internship-4a323.firebaseapp.com",
+            projectId: "internship-4a323",
+            storageBucket: "internship-4a323.appspot.com",
+            messagingSenderId: "953845773650",
+            appId: "1:953845773650:web:a31bed78777aeb7b61368b",
+            measurementId: "G-4Y753MCEG5"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        const navLinks = document.getElementById('navLinks');
+        const welcomeMessage = document.getElementById('welcomeMessage');
+
+        onAuthStateChanged(auth, user => {
+            if (user) {
+                // User is LOGGED IN
+                const userName = user.displayName || 'User';
+                
+                // Show and populate the welcome message
+                welcomeMessage.textContent = `Welcome back, ${userName}`;
+                welcomeMessage.style.display = 'block';
+
+                // Update nav links for logged-in user
+                navLinks.innerHTML = `
+                    <li><a href="./index.html" class="active">Home</a></li>
+                    <li><a href="./dashboard.html">Dashboard</a></li>
+                    <li><a href="#" id="logoutLink">Logout</a></li>
+                `;
+
+                // Add event listener for the new logout link
+                document.getElementById('logoutLink').addEventListener('click', e => {
+                    e.preventDefault();
+                    signOut(auth);
+                });
+
+            } else {
+                // User is LOGGED OUT
+                // Hide the welcome message
+                welcomeMessage.style.display = 'none';
+                
+                // Update nav links for logged-out user
+                navLinks.innerHTML = `
+                    <li><a href="./index.html" class="active">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="./login.html">Login / Sign Up</a></li>
+                    <li><a href="#">Contact</a></li>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

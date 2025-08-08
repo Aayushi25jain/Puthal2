@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - Puthal</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo"><span>P</span> Puthal</div>
+      <nav>
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./about.html" class="active">About</a></li>
+          <li><a href="./features.html">Features</a></li>
+          <li><a href="./dashboard.html">Dashboard</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main style="padding: 60px 0; text-align: center;">
+      <h1>About Puthal</h1>
+      <p style="max-width: 700px; margin: 30px auto; font-size: 18px; color: var(--text-light);">
+        Puthal is dedicated to reimagining mental health and well-being for everyone. Our mission is to empower individuals to prioritize their mental health through innovative technology, AI-driven mood tracking, mindfulness exercises, and a supportive community. We believe in making mental wellness accessible, engaging, and stigma-free.
+      </p>
+      <h2 style="margin-top: 40px;">Our Vision</h2>
+      <p style="max-width: 600px; margin: 20px auto; color: var(--text-light);">
+        To create a world where mental health is valued as much as physical health, and everyone has the tools and support they need to thrive.
+      </p>
+    </main>
+  </div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBOhAUsXApTxxwUCDFJ3Dky99WVgTlOLWw",
+      authDomain: "internship-4a323.firebaseapp.com",
+      projectId: "internship-4a323",
+      storageBucket: "internship-4a323.appspot.com",
+      messagingSenderId: "953845773650",
+      appId: "1:953845773650:web:a31bed78777aeb7b61368b",
+      measurementId: "G-4Y753MCEG5"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const navLinks = document.getElementById('navLinks');
+
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        navLinks.innerHTML = `
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./about.html" class="active">About</a></li>
+          <li><a href="./features.html">Features</a></li>
+          <li><a href="./dashboard.html">Dashboard</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+          <li><a href="#" id="logoutLink">Logout</a></li>
+        `;
+        document.getElementById('logoutLink').addEventListener('click', e => {
+          e.preventDefault();
+          signOut(auth).then(() => {
+            window.location.href = "./login.html";
+          });
+        });
+      } else {
+        navLinks.innerHTML = `
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./about.html" class="active">About</a></li>
+          <li><a href="./features.html">Features</a></li>
+          <li><a href="./dashboard.html">Dashboard</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+          <li><a href="./login.html">Login / Sign Up</a></li>
+        `;
+      }
+    });
+  </script>
+  </body>
+  </html>
